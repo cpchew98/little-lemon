@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext, useCallback } from "react";
+import React, { useState } from "react";
 import {
     View,
     StyleSheet,
@@ -9,10 +9,6 @@ import {
 } from "react-native";
 import { validateEmail, validateName } from "../utils";
 import Button from "../components/Button";
-import Constants from "expo-constants";
-import { Header } from "@react-navigation/elements";
-
-// import { AuthContext } from "../contexts/AuthContext";
 
 const Onboarding = ({ navigation }) => {
     const [firstName, onChangeFirstName] = useState("");
@@ -21,6 +17,9 @@ const Onboarding = ({ navigation }) => {
     const isEmailValid = validateEmail(email);
     const isFirstNameValid = validateName(firstName);
 
+
+    console.log("Onboarding");
+    
     return (
         <KeyboardAvoidingView
             style={styles.container}
@@ -45,7 +44,7 @@ const Onboarding = ({ navigation }) => {
                 />
                 <Button
                     onPress={() => {
-                        navigation.navigate("Dashboard");
+                        navigation.navigate("Profile");
                     }}
                     disabled={!isEmailValid && !isFirstNameValid}
                 >
