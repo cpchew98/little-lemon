@@ -12,6 +12,7 @@ import {
 import { validateEmail, validateName } from "../utils";
 import Button from "../components/Button";
 import { AuthContext } from "../contexts/AuthContext";
+import LogoTitle from "../components/Header";
 
 const Onboarding = () => {
   const [firstName, onChangeFirstName] = useState("");
@@ -29,6 +30,7 @@ const Onboarding = () => {
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
+      <LogoTitle />
       <Text style={styles.heading}>Let us get to know you</Text>
       <View style={styles.page}>
         <Text style={styles.text}>First Name</Text>
@@ -57,7 +59,7 @@ const Onboarding = () => {
           onPress={() => onboard({ firstName, lastName, email })}
           disabled={!isEmailValid && !isFirstNameValid && !isLastNameValid}
         >
-          Next
+          Submit
         </Button>
       </View>
     </KeyboardAvoidingView>

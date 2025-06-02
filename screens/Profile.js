@@ -16,7 +16,7 @@ import * as ImagePicker from "expo-image-picker";
 import Checkbox from "expo-checkbox";
 
 import { validateEmail } from "../utils";
-import Button from "../components/Button";
+import LogoTitle from "../components/Header";
 
 const Profile = () => {
   const [profile, setProfile] = useState({
@@ -107,17 +107,10 @@ const Profile = () => {
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <View style={styles.header}>
-        <Image
-          style={styles.logo}
-          source={require("../assets/Logo.png")}
-          accessible={true}
-          accessibilityLabel={"Little Lemon Logo"}
-        />
-      </View>
+      <LogoTitle />
       <ScrollView style={styles.viewScroll}>
-        <Text style={styles.headertext}>Personal Information</Text>
-        <Text style={styles.text}>Avatar</Text>
+        <Text style={styles.headertext}>Profile</Text>
+        {/* <Text style={styles.text}>Avatar</Text> */}
         <View style={styles.avatarContainer}>
           {profile.image ? (
             <Image source={{ uri: profile.image }} style={styles.avatarImage} />
@@ -244,48 +237,39 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-  },
-  header: {
-    padding: 12,
-    flexDirection: "row",
-    justifyContent: "center",
-    backgroundColor: "#dee3e9",
-  },
-  logo: {
-    height: 50,
-    width: 150,
-    resizeMode: "contain",
+    backgroundColor: "#grey",
   },
   viewScroll: {
     flex: 1,
-    padding: 10,
+    padding: 30,
   },
   headertext: {
-    fontSize: 22,
-    paddingBottom: 10,
+    fontSize: 25,
+    color: "#495E57",
+    textAlign: "center"
   },
   text: {
     fontSize: 16,
-    marginBottom: 5,
+    color: "#495E57",
   },
   inputBox: {
+    borderColor: "#EDEFEE",
+    backgroundColor: "#EDEFEE",
     alignSelf: "stretch",
-    marginBottom: 10,
+    height: 50,
+    marginTop: 12,
+    marginBottom: 18,
     borderWidth: 1,
     padding: 10,
-    fontSize: 16,
+    fontSize: 18,
     borderRadius: 9,
-    borderColor: "#dfdfe5",
   },
   btn: {
     backgroundColor: "#f4ce14",
-    borderRadius: 9,
+    borderRadius: 8,
     alignSelf: "stretch",
     marginVertical: 18,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: "#cc9a22",
+    padding: 8,
   },
   btnDisabled: {
     backgroundColor: 'grey',
@@ -301,11 +285,9 @@ const styles = StyleSheet.create({
   saveBtn: {
     flex: 1,
     backgroundColor: "#495E57",
-    borderRadius: 9,
+    borderRadius: 8,
     alignSelf: "stretch",
     padding: 10,
-    borderWidth: 1,
-    borderColor: "#3f554d",
   },
   saveBtnText: {
     fontSize: 18,
@@ -315,12 +297,10 @@ const styles = StyleSheet.create({
   discardBtn: {
     flex: 1,
     backgroundColor: "#FFFFFF",
-    borderRadius: 9,
+    borderRadius: 8,
     alignSelf: "stretch",
     marginRight: 18,
     padding: 10,
-    borderWidth: 1,
-    borderColor: "#83918c",
   },
   discardBtnText: {
     fontSize: 18,
@@ -342,10 +322,6 @@ const styles = StyleSheet.create({
   checkbox: {
     margin: 8,
   },
-  error: {
-    color: "#d14747",
-    fontWeight: "bold",
-  },
   avatarContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -360,7 +336,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: "#0b9a6a",
+    backgroundColor: "#495e57",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -374,17 +350,13 @@ const styles = StyleSheet.create({
   },
   changeBtn: {
     backgroundColor: "#495e57",
-    borderRadius: 9,
+    borderRadius: 8,
     marginHorizontal: 18,
     padding: 10,
-    borderWidth: 1,
-    borderColor: "#3f554d",
   },
   removeBtn: {
     backgroundColor: "#FFFFFF",
-    borderRadius: 9,
+    borderRadius: 8,
     padding: 10,
-    borderWidth: 1,
-    borderColor: "#83918c",
   },
 });

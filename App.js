@@ -10,19 +10,6 @@ import { AuthContext } from "./contexts/AuthContext";
 
 const Stack = createNativeStackNavigator();
 
-function LogoTitle() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Image
-        style={styles.logo}
-        source={require("./assets/Logo.png")}
-        accessible={true}
-        accessibilityLabel={"Little Lemon Logo"}
-      />
-    </View>
-  );
-}
-
 function App({ navigation }) {
   const [state, dispatch] = useReducer(
     (prevState, action) => {
@@ -99,7 +86,11 @@ function App({ navigation }) {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerTitleAlign: 'center',
+          }}
+        >
           {state.isOnboardingCompleted ? (
             <>
               <Stack.Screen
@@ -107,13 +98,16 @@ function App({ navigation }) {
                 component={Home}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTitle: () => <LogoTitle />
+                  headerShown: false,
+                  // headerTitle: () => <LogoTitle />
                 }}
               />
               <Stack.Screen name="Profile" component={Profile}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTitle: () => <LogoTitle />,
+                  headerTitle: "",
+                  headerShown: true,
+                  headerTransparent: true
 
                 }}
               />
@@ -124,7 +118,8 @@ function App({ navigation }) {
               component={Onboarding}
               options={{
                 headerBackTitleVisible: false,
-                headerTitle: () => <LogoTitle />
+                  headerShown: false,
+                // headerTitle: () => <LogoTitle />
               }}
             />
           )}

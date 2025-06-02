@@ -140,16 +140,16 @@ const Home = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Image
-          style={styles.logo}
-          source={require("../assets/Logo.png")}
-          accessible={true}
-          accessibilityLabel={"Little Lemon Logo"}
-        />
+                style={styles.logo}
+                source={require("../assets/Logo.png")}
+                accessible={true}
+                accessibilityLabel={"Little Lemon Logo"}
+              />
         <Pressable
           style={styles.avatar}
           onPress={() => navigation.navigate("Profile")}
         >
-          {profile.image !== "" ? (
+          {profile.image ? (
             <Image source={{ uri: profile.image }} style={styles.avatarImage} />
           ) : (
             <View style={styles.avatarEmpty}>
@@ -224,10 +224,10 @@ const styles = StyleSheet.create({
     paddingTop: 18,
   },
   header: {
+    marginTop: 20,
     padding: 12,
     flexDirection: "row",
     justifyContent: "center",
-    backgroundColor: "#dee3e9",
   },
   logo: {
     height: 50,
@@ -279,10 +279,8 @@ const styles = StyleSheet.create({
     height: 100,
   },
   avatar: {
-    flex: 1,
-    position: "absolute",
-    right: 10,
-    top: 10,
+    flexDirection: "row",
+    alignItems: "center",
   },
   avatarImage: {
     width: 50,
@@ -293,9 +291,14 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: "#0b9a6a",
+    backgroundColor: "#495e57",
     alignItems: "center",
     justifyContent: "center",
+  },
+  avatarEmptyText: {
+    fontSize: 22,
+    color: "#FFFFFF",
+    fontWeight: "bold",
   },
   heroSection: {
     backgroundColor: "#495e57",
