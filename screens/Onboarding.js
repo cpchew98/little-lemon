@@ -15,14 +15,39 @@ import { AuthContext } from "../contexts/AuthContext";
 import LogoTitle from "../components/Header";
 
 const Onboarding = () => {
-  const [firstName, onChangeFirstName] = useState("");
-  const [lastName, onChangeLastName] = useState("");
-  const [email, onChangeEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
 
-  const isEmailValid = validateEmail(email);
-  const isFirstNameValid = validateName(firstName);
-  const isLastNameValid = validateName(lastName);
-  const { onboard } = useContext(AuthContext);
+  const validateForm = () => {
+    const isEmailValid = validateEmail(email);
+    const isFirstNameValid = validateName(firstName);
+    const isLastNameValid = validateName(lastName);
+    setIsFormValid(isEmailValid && isFirstNameValid && isLastNameValid);
+
+  };
+
+  const handleFirstNameChange = (text) => {
+    setFirstName(text);
+    validateForm();
+  };
+
+  const handleLastNameChange = (text) => {
+    setLastName(text);
+    validateForm();
+  };
+
+  const handleEmailChange = (text) => {
+    setEmail(text);
+    validateForm();
+  };
+
+  const handleSubmit = () => {
+    if (isFormValid) {
+      useContext(AuthContext);
+    }
+  };
 
 
   return (
@@ -37,27 +62,27 @@ const Onboarding = () => {
         <TextInput
           style={styles.inputBox}
           value={firstName}
-          onChangeText={onChangeFirstName}
+          onChangeText={handleFirstNameChange}
           placeholder={"First Name"}
         />
         <Text style={styles.text}>Last Name</Text>
         <TextInput
           style={styles.inputBox}
           value={lastName}
-          onChangeText={onChangeLastName}
+          onChangeText={handleLastNameChange}
           placeholder={"Last Name"}
         />
         <Text style={styles.text}>Email</Text>
         <TextInput
           style={styles.inputBox}
           value={email}
-          onChangeText={onChangeEmail}
+          onChangeText={handleEmailChange}
           placeholder={"Email"}
           keyboardType="email-address"
         />
         <Button
-          onPress={() => onboard({ firstName, lastName, email })}
-          disabled={!isEmailValid && !isFirstNameValid && !isLastNameValid}
+          onPress={() => handleSubmit({ firstName, lastName, email })}
+          disabled={!isFormValid}
         >
           Submit
         </Button>

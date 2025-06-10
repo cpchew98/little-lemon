@@ -99,7 +99,6 @@ function App({ navigation }) {
                 options={{
                   headerBackTitleVisible: false,
                   headerShown: false,
-                  // headerTitle: () => <LogoTitle />
                 }}
               />
               <Stack.Screen name="Profile" component={Profile}
@@ -119,7 +118,6 @@ function App({ navigation }) {
               options={{
                 headerBackTitleVisible: false,
                   headerShown: false,
-                // headerTitle: () => <LogoTitle />
               }}
             />
           )}

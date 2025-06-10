@@ -110,7 +110,6 @@ const Profile = () => {
       <LogoTitle />
       <ScrollView style={styles.viewScroll}>
         <Text style={styles.headertext}>Profile</Text>
-        {/* <Text style={styles.text}>Avatar</Text> */}
         <View style={styles.avatarContainer}>
           {profile.image ? (
             <Image source={{ uri: profile.image }} style={styles.avatarImage} />
@@ -231,7 +230,7 @@ const Profile = () => {
     </KeyboardAvoidingView>
   );
 };
-("");
+
 export default Profile;
 
 const styles = StyleSheet.create({
