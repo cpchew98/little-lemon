@@ -220,7 +220,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#grey",
     paddingTop: 18,
   },
   header: {
@@ -258,7 +258,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     paddingVertical: 8,
     color: "#495e57",
-    backgroundColor: "#fff",
   },
   name: {
     fontSize: 20,
@@ -271,7 +270,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 20,
-    color: "#EE9972",
+    color: "#000000",
     paddingTop: 5,
   },
   itemImage: {

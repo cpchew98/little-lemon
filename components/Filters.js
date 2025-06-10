@@ -14,7 +14,7 @@ const Filters = ({ onChange, selections, sections }) => {
             justifyContent: "center",
             alignItems: "center",
             padding: 16,
-            backgroundColor: selections[index] ? "#495e57" : "#edefee",
+            backgroundColor: selections[index] ? '#EE9972' : '#495E57',
             borderRadius: 9,
             marginRight: 15,
           }}
@@ -22,7 +22,7 @@ const Filters = ({ onChange, selections, sections }) => {
           <View>
             <Text
               style={{
-                color: selections[index] ? "#edefee" : "#495e57",
+                color: selections[index]  ? 'black' : 'white',
               }}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -36,7 +36,7 @@ const Filters = ({ onChange, selections, sections }) => {
 
 const styles = StyleSheet.create({
   filtersContainer: {
-    backgroundColor: "#fff",
+    backgroundColor: "#grey",
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 16,

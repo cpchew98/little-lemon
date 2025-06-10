@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import {
   View,
-  Image,
   StyleSheet,
   Text,
   KeyboardAvoidingView,
