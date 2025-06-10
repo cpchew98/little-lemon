@@ -43,12 +43,7 @@ const Onboarding = () => {
     validateForm();
   };
 
-  const handleSubmit = () => {
-    if (isFormValid) {
-      useContext(AuthContext);
-    }
-  };
-
+  const { onboard } = useContext(AuthContext);
 
   return (
     <KeyboardAvoidingView
@@ -81,7 +76,7 @@ const Onboarding = () => {
           keyboardType="email-address"
         />
         <Button
-          onPress={() => handleSubmit({ firstName, lastName, email })}
+          onPress={() => onboard({ firstName, lastName, email })}
           disabled={!isFormValid}
         >
           Submit
